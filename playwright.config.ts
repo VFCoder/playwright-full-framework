@@ -6,6 +6,17 @@ import { defineConfig, devices } from "@playwright/test";
  */
 // require('dotenv').config();
 
+//set NODE_ENV in terminal:
+//export NODE_ENV=qa
+//echo $NODE_ENV
+
+if (!process.env.NODE_ENV) {
+  require("dotenv").config({ path: `${__dirname}//src//config//.env` });
+} else {
+  require("dotenv").config({
+    path: `${__dirname}//src//config//.env.${process.env.NODE_ENV}`,
+  });
+}
 /**
  * See https://playwright.dev/docs/test-configuration.
  */

@@ -2,9 +2,12 @@ import { test, expect } from "@playwright/test";
 import LoginPage from "../pages/LoginPage";
 import { encrypt, decrypt } from "../utils/CryptojsUtil";
 import { encryptEnvFile } from "../utils/EncryptEnvFile";
+import logger from "../utils/LoggerUtil";
 
 test.only("login test", async ({ page }) => {
   const loginPage = new LoginPage(page);
+
+  logger.info("Test for login is started...");
 
   await loginPage.navigateToLoginPage();
   await loginPage.fillUsername(decrypt(process.env.userid!));
@@ -12,6 +15,7 @@ test.only("login test", async ({ page }) => {
 
   const homePage = await loginPage.clickLoginButton();
   await homePage.expectServiceTitleToBeVisible();
+  logger.info("Test for login is complete");
 });
 
 test("Sample env test", async ({ page }) => {

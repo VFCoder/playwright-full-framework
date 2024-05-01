@@ -139,3 +139,19 @@
 2024-04-29T21:53:38-04:00 [info]: Test for contact create is completed
 2024-04-29T21:53:39-04:00 [info]: New contact created and Joe Calloway is visible
 2024-04-29T21:53:39-04:00 [info]: Test for contact create is completed
+2024-05-01T14:11:58-04:00 [info]: Test for login is started...
+2024-05-01T14:12:00-04:00 [info]: Navigated to login.salesforce.com
+2024-05-01T14:12:00-04:00 [info]: Filled username
+2024-05-01T14:12:00-04:00 [info]: Filled password
+2024-05-01T14:12:27-04:00 [error]: Error clicking login button: Error: locator.click: Test timeout of 30000ms exceeded.
+Call log:
+  [2m- waiting for locator('#LoginX')[22m
+
+2024-05-01T14:12:29-04:00 [info]: Test for login is started...
+2024-05-01T14:12:31-04:00 [info]: Navigated to login.salesforce.com
+2024-05-01T14:12:31-04:00 [info]: Filled username
+2024-05-01T14:12:31-04:00 [info]: Filled password
+2024-05-01T14:12:59-04:00 [error]: Error clicking login button: Error: locator.click: Test timeout of 30000ms exceeded.
+Call log:
+  [2m- waiting for locator('#LoginX')[22m
+

@@ -1,0 +1,29 @@
+2024-05-03T13:34:36-04:00 [info]: Modified request header is {
+  "accept": "*/*",
+  "accept-language": "en-US",
+  "origin": "https://c.salesforce.com",
+  "referer": "https://www.salesforce.com/etc.bundles/sfdc-www/bundles/all.bundle.c87ede2369c7915f6b06.css",
+  "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.6367.29 Safari/537.36",
+  "sec-ch-ua": "\"Chromium\";v=\"124\", \"HeadlessChrome\";v=\"124\", \"Not-A.Brand\";v=\"99\"",
+  "sec-ch-ua-mobile": "?0",
+  "sec-ch-ua-platform": "\"Windows\""
+} Modified request type is GET
+2024-05-03T13:34:36-04:00 [info]: Modified request header is {
+  "accept": "*/*",
+  "accept-language": "en-US",
+  "origin": "https://c.salesforce.com",
+  "referer": "https://c.salesforce.com/login-messages/promos.html",
+  "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.6367.29 Safari/537.36",
+  "sec-ch-ua": "\"Chromium\";v=\"124\", \"HeadlessChrome\";v=\"124\", \"Not-A.Brand\";v=\"99\"",
+  "sec-ch-ua-mobile": "?0",
+  "sec-ch-ua-platform": "\"Windows\""
+} Modified request type is GET
+2024-05-03T13:34:36-04:00 [info]: Modified request header is {
+  "accept": "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8",
+  "accept-language": "en-US",
+  "referer": "https://c.salesforce.com/login-messages/promos.html",
+  "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.6367.29 Safari/537.36",
+  "sec-ch-ua": "\"Chromium\";v=\"124\", \"HeadlessChrome\";v=\"124\", \"Not-A.Brand\";v=\"99\"",
+  "sec-ch-ua-mobile": "?0",
+  "sec-ch-ua-platform": "\"Windows\""
+} Modified request type is GET

@@ -33,27 +33,54 @@ test.skip("csv to json", async () => {
 });
 
 for (const contact of cdata) {
-  test.skip(`Advanced DD test for ${contact.firstName}`, async ({ page }) => {
-    logger.info("Test for contact creation is started...");
-    const loginPage = new LoginPage(page);
-    await loginPage.navigateToLoginPage();
-    await loginPage.fillUsername(decrypt(process.env.userid!));
-    await loginPage.fillPassword(decrypt(process.env.password!));
+  test(`Advanced DD test for ${contact.firstName} ${contact.lastName}`, async ({
+    page,
+  }) => {
+    try {
+      logger.info(
+        `Starting test for contact creation: ${contact.firstName} ${contact.lastName}`
+      );
+      const loginPage = new LoginPage(page);
+      await loginPage.navigateToLoginPage();
+      logger.info("Logged into the application");
 
-    const homePage = await loginPage.clickLoginButton();
-    await homePage.expectServiceTitleToBeVisible();
+      await loginPage.fillUsername(decrypt(process.env.userid!));
+      await loginPage.fillPassword(decrypt(process.env.password!));
+      logger.info("Filled in credentials");
 
-    const contactsPage = await homePage.navigateToContactTab();
-    await contactsPage.createNewContact(contact.firstName, contact.lastName);
-    await contactsPage.expectContatLabelContainsFirstNameAndLastName(
-      contact.firstName,
-      contact.lastName
-    );
-    logger.info("Test for contact create is completed");
+      const homePage = await loginPage.clickLoginButton();
+      await homePage.expectServiceTitleToBeVisible();
+      logger.info("Login successful and home page is visible");
+
+      const contactsPage = await homePage.navigateToContactTab();
+      logger.info("Navigated to contacts tab");
+
+      await contactsPage.createNewContact(contact.firstName, contact.lastName);
+      logger.info(
+        `Created new contact: ${contact.firstName} ${contact.lastName}`
+      );
+
+      await contactsPage.expectContactLabelContainsFirstNameAndLastName(
+        contact.firstName,
+        contact.lastName
+      );
+      logger.info(
+        `Verified contact creation for: ${contact.firstName} ${contact.lastName}`
+      );
+
+      logger.info(
+        `Test completed successfully for: ${contact.firstName} ${contact.lastName}`
+      );
+    } catch (error) {
+      logger.error(
+        `Error during the test for: ${contact.firstName} ${contact.lastName} - ${error}`
+      );
+      throw error; // Ensuring the test fails in case of an error
+    }
   });
 }
 
-test("Faker", async () => {
+test.skip("Faker", async () => {
   const testData = generateTestData(20);
   exportToJson(testData, "testData_faker.json");
   exportToCsv(testData, "testData_faker.csv");

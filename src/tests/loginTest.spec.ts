@@ -1,8 +1,10 @@
 import { test, expect } from "@playwright/test";
 import LoginPage from "../pages/LoginPage";
 import { encrypt, decrypt } from "../utils/CryptojsUtil";
-import { encryptEnvFile } from "../utils/EncryptEnvFile";
 import logger from "../utils/LoggerUtil";
+import HomePage from "../pages/HomePage";
+
+const authFile = "src/config/auth.json";
 
 test("Login test", async ({ page }) => {
   const loginPage = new LoginPage(page);
@@ -14,22 +16,24 @@ test("Login test", async ({ page }) => {
   await loginPage.fillPassword(decrypt(process.env.password!));
 
   const homePage = await loginPage.clickLoginButton();
+  //await page.pause();
+  await homePage.expectServiceTitleToBeVisible();
+  logger.info("Test for login is complete");
+
+  await page.context().storageState({ path: authFile });
+  logger.info("Auth state is saved");
+});
+
+test("Login with auth file", async ({ browser }) => {
+  const context = await browser.newContext({ storageState: authFile });
+  const page = await context.newPage();
+  const homePage = new HomePage(page);
+
+  await page.goto(
+    "https://vfcoder-dev-ed.develop.lightning.force.com/lightning/page/home"
+  );
   await homePage.expectServiceTitleToBeVisible();
   logger.info("Test for login is complete");
 });
 
-test("Sample env test", async ({ page }) => {
-  console.log(process.env.NODE_ENV);
-  console.log(process.env.userid);
-  console.log(process.env.password);
-});
 
-test("Sample encrypt test", async ({ page }) => {
-  // const plaintext = "Hello, Mars!";
-  // const encryptedText = encrypt(plaintext);
-  // console.log("SALT:", process.env.SALT);
-  // console.log("Encrypted:", encryptedText);
-  // const decryptedText = decrypt(encryptedText);
-  // console.log("Decrypted:", decryptedText);
-  encryptEnvFile();
-});

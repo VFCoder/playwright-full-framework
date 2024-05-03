@@ -8,6 +8,14 @@ export default class LoginPage {
   private readonly LoginButtonSelector = "#Login";
 
   constructor(private page: Page) {}
+
+  async quickLogin(username: string, password: string) {
+    await this.navigateToLoginPage();
+    await this.fillUsername(username);
+    await this.fillPassword(password);
+    return await this.clickLoginButton();
+  }
+  
   async navigateToLoginPage() {
     await this.page.goto("/");
     logger.info("Navigated to login.salesforce.com");

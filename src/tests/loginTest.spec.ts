@@ -36,4 +36,8 @@ test("Login with auth file", async ({ browser }) => {
   logger.info("Test for login is complete");
 });
 
-
+test("Login test with self heal", async ({ page }) => {
+  const loginPage = new LoginPage(page);
+  await loginPage.navigateToLoginPage();
+  await loginPage.fillUsername_selfheal("demo_selfheal");
+});

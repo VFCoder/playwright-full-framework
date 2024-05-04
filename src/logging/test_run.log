@@ -1,0 +1,4 @@
+2024-05-03T22:28:26-04:00 [info]: Filled username
+2024-05-03T22:40:24-04:00 [info]: Navigated to login.salesforce.com
+2024-05-03T22:40:29-04:00 [error]:  Invalid locator: #usernameINVALID
+2024-05-03T22:40:29-04:00 [info]: Found valid element with locator: input[name="username"]
